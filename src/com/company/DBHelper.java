@@ -25,12 +25,14 @@ public class DBHelper {
     }
 
     private Connection connect() {
-        String url = "jdbc:mysql://meru.hhs.nl:3306/";
-        String db = "18066690";
-        String user = "18066690";
-        String pass = "ie4eethieK";
+        String serverName = "localhost:3306";
+        String db = "fullhouse";
+        String user = "root";
+        String pass = "root";
+
+        String databaseUrl = "jdbc:mysql://" + serverName + "/" + db + "?autoReconnect=true&useSSL=false";
         try {
-            connection = DriverManager.getConnection(url + db, user, pass);
+            connection = DriverManager.getConnection(databaseUrl, user, pass);
             return connection;
         } catch (SQLException e) {
             e.printStackTrace();
